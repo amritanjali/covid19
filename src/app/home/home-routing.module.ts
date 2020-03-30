@@ -5,7 +5,6 @@ import { HomeComponent } from './../home/home.component';
 
 import { DashboardComponent } from './../dashboard/dashboard.component';
 
-import { AuthGaurdGuard } from '../shared/services/auth-gaurd.guard'
 const routes: Routes = [
 
   { path: '', redirectTo: 'covid', pathMatch: 'full' },
