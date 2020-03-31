@@ -19,9 +19,9 @@ import{HomeRoutingModule} from './home/home-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  
 import { ToastrModule } from 'ngx-toastr';
-import{AuthGaurdGuard} from './shared/services/auth-gaurd.guard'
+
 export function CreateTranslateLoader(http: HttpClient) {
-  console.log("translator orkking")
+  // console.log("translator orkking")
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 @NgModule({
@@ -56,7 +56,7 @@ export function CreateTranslateLoader(http: HttpClient) {
     }),
   ],
   providers: [
-    AuthGaurdGuard
+
   ],
   bootstrap: [AppComponent]
 })

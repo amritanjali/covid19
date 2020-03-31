@@ -1,6 +1,29 @@
 
+ .mobile-responsive{
+    display:none
+}
+
+.custom-icon{position: absolute;
+/* r: 0px; */
+/* right: 100%; */
+left: 88%;
+font-size: 35px;
+color: #2db8ce;}
+
+.custom-text>p{font-size: 22px;
+margin-bottom: 0px;}
+.custom-card-body{
+    padding: 10px
+}
 @media (max-width: 500px) {
     .time-disable-mobile{
         display: none;
     }
+    .mobile-responsive{
+        display:block
+    }
+    
+ .desktop-responsive{
+    display:none
+}
 }

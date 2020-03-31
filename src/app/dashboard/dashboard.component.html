@@ -1,22 +1,5 @@
-<div class="container">
+<div class="container desktop-responsive">
 
-  <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark" *ngIf="authenticated">
-    <div *ngIf="authenticated">
-      <h1 class="display-4 font-italic">{{userDeatils.login}}</h1>
-      <h1 class="display-4 font-italic">Role: &nbsp;{{userDeatils.authorities}}</h1>
-
-
-    </div>
-
-    <!-- <div class="col-md-6 px-0">
-                 <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
-                  <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.</p>
-                  <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
-                </div> -->
-  </div>
-  <!-- <div class="" *ngFor="let covid of covidDetails">
-                <span>{{covid.country}}</span>
-        </div> -->
   <h3>
     <br> COVID-19 Coronavirus Statistics
 
@@ -27,6 +10,7 @@
 
         <th>country Name</th>
         <th>confirmed</th>
+        <th>new cases</th>
         <th>deaths</th>
         <th>recovered</th>
         <th>last update </th>
@@ -37,6 +21,7 @@
 
         <td>{{covid.country}}</td>
         <td>{{covid.cases.total}}</td>
+        <td>{{covid.cases.new}}</td>
         <td [ngClass]='{"table-danger":covid.deaths.total>0}'>{{covid.deaths.total}}</td>
         <!-- <td [ngClass]='{"table-danger":covid.deaths>0}'>{{covid.cases.active}}</td> -->
         <td>{{covid.cases.recovered}}</td>
@@ -51,6 +36,7 @@
 
         <th>country Name</th>
         <th>confirmed</th>
+        <th>new</th>
         <th>deaths</th>
         <th>recovered</th>
         <th class="time-disable-mobile">last update </th>
@@ -61,6 +47,7 @@
 
         <td>{{covid.country}}</td>
         <td>{{covid.cases.total}}</td>
+        <td>{{covid.cases.new}}</td>
         <td [ngClass]='{"table-danger":covid.deaths.total>0,"bg-danger":covid.deaths.total>100 }'>{{covid.deaths.total}}
         </td>
         <!-- <td [ngClass]='{"table-danger":covid.deaths>0}'>{{covid.cases.active}}</td> -->
@@ -70,4 +57,51 @@
     </tbody>
   </table>
 
+</div>
+<div class="container mobile-responsive">
+  <h3>
+    <br> COVID-19 Coronavirus Statistics
+
+  </h3>
+  <div class="card" *ngFor="let covid of covidNumb">
+    <div class="card-body custom-card-body"><i class="fa fa-angle-down custom-icon" aria-hidden="true"
+        (click)="expandClick()"></i>
+      <!-- <i class="fa fa-angle-down custom-icon" aria-hidden="true" (click)="collpaseClick()"></i> -->
+      <h5 class="card-title">{{covid.country}}</h5>
+      <div class="custom-text" *ngIf="expandDiv">
+        <p class="card-text text-warning">confirmed:{{covid.cases.total}}</p>
+        <p class="card-text text-danger">deaths:{{covid.deaths.total}}</p>
+        <p class="card-text text-danger">new:{{covid.cases.new}}</p>
+        <p class="card-text text-success">recover:94</p>
+        <p class="card-text">last update:{{covid.time| date:'dd-MM-yyyy hh:mm:ss a':'+0530'}}</p>
+      </div>
+      <div class="custom-text" *ngIf="defaultInfo">
+        <p class="card-text text-warning">confirmed:{{covid.cases.total}}</p>
+        <p class="card-text text-danger">deaths:{{covid.deaths.total}}</p>
+      </div>
+
+    </div>
+  </div>
+
+  <h4><br><br>All over the world</h4>
+
+  <div class="card" *ngFor="let covid of covidNumbAll let i=index">
+    <div class="card-body custom-card-body"><i class="fa fa-angle-down custom-icon" aria-hidden="true"
+        (click)="expandClick1(covid)"></i>
+      <!-- <i class="fa fa-angle-down custom-icon" aria-hidden="true" (click)="collpaseClick()"></i> -->
+      <h5 class="card-title">{{covid.country}}</h5>
+      <div class="custom-text" *ngIf="expandDiv1">
+        <p class="card-text text-warning">confirmed:{{covid.cases.total}}</p>
+        <p class="card-text text-danger">deaths:{{covid.deaths.total}}</p>
+        <p class="card-text text-danger">new:{{covid.cases.new}}</p>
+        <p class="card-text text-success">recover:94</p>
+        <p class="card-text">last update:{{covid.time| date:'dd-MM-yyyy hh:mm:ss a':'+0530'}}</p>
+      </div>
+      <div class="custom-text" *ngIf="defaultInfo1">
+        <p class="card-text text-warning">confirmed:{{covid.cases.total}}</p>
+        <p class="card-text text-danger">deaths:{{covid.deaths.total}}</p>
+      </div>
+
+    </div>
+  </div>
 </div>

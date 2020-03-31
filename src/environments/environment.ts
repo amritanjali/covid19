@@ -3,31 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  'accountResource':{
-    protocol: 'http',
-    port: '8080',
-    apiprefix: 'api',
-    registerAccount: 'register',
-    getAccount: 'account',
-    changePassword:'account/change-password'
-  },
-  'userJwtController':{
-    protocol: 'http',
-    port: '8080',
-    apiprefix: 'api',
-    authorize: 'authenticate'
-  },
-
-  "userResource":{
-    protocol: 'http',
-    port: '8080',
-    apiprefix: 'api',
-    getAllUsers: 'users',
-    currentUser: 'users/:user',
-    getAuthorities: 'users/authorities',
-    pagination:'users:page'
-  },
+  production: true,
   "covid19":{
     apiName: "https://covid-193.p.rapidapi.com/statistics",
   }

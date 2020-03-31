@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SecureSessionStorageService } from '../shared/services/secure-session-storage.service'
-import { AuthenticationService } from '../shared/services/authentication.service'
+
 import { Router } from '@angular/router'
 import { UserAccountService } from '../shared/services/user-account.service'
 @Component({
@@ -14,30 +13,27 @@ export class DashboardComponent implements OnInit {
   public covidDetails: any;
   public covidNumb: any
   public covidDetailsAll: any;
-  public covidNumbAll: any
-  constructor(private sessionStorage: SecureSessionStorageService,
-    private auth: AuthenticationService, private router: Router, private userAccount: UserAccountService) { }
+  public covidNumbAll: any;
+  public expandDiv = false;
+  public defaultInfo = true;
+  public expandDiv1 = false;
+  public defaultInfo1 = true;
+  public selected:any =""
+  constructor(
+    private router: Router, private userAccount: UserAccountService) { }
 
   ngOnInit() {
-    if (this.auth.isLoggedIn()) {
-      this.userAccount.getAccountDetails().subscribe(
-        (data) => {
-          this.userDeatils = data;
-          this.authenticated = true;
-        }
-      )
-
-    }
+   
     // console.log(   this.userDeatils + "dagvhord testinggg")
     this.userAccount.covid19().subscribe(
       (res) => {
-        console.log("covid data=====>")
+        // console.log("covid data=====>")
         this.covidDetails = res
         this.covidNumb = this.covidDetails.response
         // console.log("covid data" +  this.covidDetails.data.covid19Stats[0].city);
       },
       (error) => {
-        console.log(error)
+        alert("use after some time")
       }
     )
 
@@ -49,9 +45,22 @@ export class DashboardComponent implements OnInit {
         // console.log("covid data" +  this.covidDetailsAll.data.covid19Stats[0].city);
       },
       (error) => {
-        console.log(error)
+       alert("use after some time")
       }
     )
   }
+  expandClick(){
+    this.expandDiv =  !this.expandDiv
+    this.defaultInfo = !this.defaultInfo
+  }
+  // collpaseClick(){
 
+  // }
+  expandClick1(co: any){
+  //  this.selected = co.country;
+    this.expandDiv1 =  !this.expandDiv1
+    this.defaultInfo1 = !this.defaultInfo1;
+    // console.log(this.selected )
+  
+  }
 }
