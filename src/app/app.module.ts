@@ -17,8 +17,7 @@ import{HomeRoutingModule} from './home/home-routing.module';
 
 // import { ViewUserComponent } from './user-managment/view-user/view-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
- 
-import { ToastrModule } from 'ngx-toastr';
+
 
 export function CreateTranslateLoader(http: HttpClient) {
   // console.log("translator orkking")
@@ -30,7 +29,7 @@ export function CreateTranslateLoader(http: HttpClient) {
     HomeComponent,
 
     DashboardComponent,
-   
+
   ],
   imports: [
     BrowserModule,
@@ -48,12 +47,7 @@ export function CreateTranslateLoader(http: HttpClient) {
     }),
     BrowserAnimationsModule, // required animations module
     // ToastrModule.forRoot() // ToastrModule added
-    ToastrModule.forRoot({
-      timeOut: 3000,
-      positionClass: 'top-right',
-      preventDuplicates: true,
- 
-    }),
+
   ],
   providers: [
 
