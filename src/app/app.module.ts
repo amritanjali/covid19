@@ -15,9 +15,11 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import{HomeRoutingModule} from './home/home-routing.module';
 
-// import { ViewUserComponent } from './user-managment/view-user/view-user.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
 
 export function CreateTranslateLoader(http: HttpClient) {
   // console.log("translator orkking")
@@ -37,6 +39,8 @@ export function CreateTranslateLoader(http: HttpClient) {
     ReactiveFormsModule,
     HttpClientModule,
     HomeRoutingModule,
+    Ng2SearchPipeModule,
+    FormsModule,
     // BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {

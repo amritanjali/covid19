@@ -18,19 +18,22 @@ export class DashboardComponent implements OnInit {
   public defaultInfo = true;
   public expandDiv1 = false;
   public defaultInfo1 = true;
-  public selected:any =""
+  public selected: any = "";
+  public searchText;
+  public loaderShowingAllWorld = true;
+  public loaderShowingAllIndia = true;
   constructor(
     private router: Router, private userAccount: UserAccountService) { }
 
   ngOnInit() {
-   
-    // console.log(   this.userDeatils + "dagvhord testinggg")
+
+    this.loaderShowingAllWorld = true;
+    this.loaderShowingAllIndia = true;
     this.userAccount.covid19().subscribe(
       (res) => {
-        // console.log("covid data=====>")
         this.covidDetails = res
         this.covidNumb = this.covidDetails.response
-        // console.log("covid data" +  this.covidDetails.data.covid19Stats[0].city);
+        this.loaderShowingAllIndia = false;
       },
       (error) => {
         alert("use after some time")
@@ -42,25 +45,33 @@ export class DashboardComponent implements OnInit {
         console.log("covid data=====>")
         this.covidDetailsAll = res
         this.covidNumbAll = this.covidDetailsAll.response
-        // console.log("covid data" +  this.covidDetailsAll.data.covid19Stats[0].city);
+        this.loaderShowingAllWorld = false;
+        return this.covidNumbAll.sort(this.sortFunc)
       },
       (error) => {
-       alert("use after some time")
+        alert("use after some time")
       }
     )
+
+
   }
-  expandClick(){
-    this.expandDiv =  !this.expandDiv
+  expandClick() {
+    this.expandDiv = !this.expandDiv
     this.defaultInfo = !this.defaultInfo
   }
   // collpaseClick(){
 
   // }
-  expandClick1(co: any){
-  //  this.selected = co.country;
-    this.expandDiv1 =  !this.expandDiv1
+  expandClick1(co: any) {
+    //  this.selected = co.country;
+    this.expandDiv1 = !this.expandDiv1
     this.defaultInfo1 = !this.defaultInfo1;
     // console.log(this.selected )
-  
+
+  }
+
+  sortFunc(a: any, b: any) {
+    console.log(a.cases.total - b.cases.total)
+    return b.cases.total - a.cases.total
   }
 }

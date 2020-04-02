@@ -1,29 +1,113 @@
-
- .mobile-responsive{
-    display:none
+.mobile-responsive {
+  display: none
 }
 
-.custom-icon{position: absolute;
-/* r: 0px; */
-/* right: 100%; */
-left: 88%;
-font-size: 35px;
-color: #2db8ce;}
-
-.custom-text>p{font-size: 22px;
-margin-bottom: 0px;}
-.custom-card-body{
-    padding: 10px
+.custom-icon {
+  position: absolute;
+  /* r: 0px; */
+  /* right: 100%; */
+  left: 88%;
+  font-size: 35px;
+  color: #2db8ce;
 }
+
+.custom-text>p {
+  font-size: 22px;
+  margin-bottom: 0px;
+}
+
+.custom-card-body {
+  padding: 10px
+}
+
+.padd0 {
+  padding: 0px;
+}
+
+.loader {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #3498db;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
+  animation: spin 2s linear infinite;
+  display: inline-block
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.card-title {
+  margin-bottom: 5px;
+}
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+  border-radius: 30px;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #5fa5ba;
+}
+
+.form-control {
+  box-shadow: 0 10px 40px 0 #B0C1D9;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  margin-top: 10px;
+}
+
+.h4,
+h4 {
+  font-size: 1.5rem;
+  line-height: 0.6;
+}
+
+.all-label-desktop {
+  vertical-align: middle;
+  display: initial;
+}
+
 @media (max-width: 500px) {
-    .time-disable-mobile{
-        display: none;
-    }
-    .mobile-responsive{
-        display:block
-    }
-    
- .desktop-responsive{
-    display:none
-}
+  .time-disable-mobile {
+    display: none;
+  }
+
+  .mobile-responsive {
+    display: block
+  }
+
+  .desktop-responsive {
+    display: none
+  }
 }
