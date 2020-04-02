@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit {
 
     this.userAccount.covid19All().subscribe(
       (res) => {
-        console.log("covid data=====>")
+        // console.log("covid data=====>")
         this.covidDetailsAll = res
         this.covidNumbAll = this.covidDetailsAll.response
         this.loaderShowingAllWorld = false;
@@ -71,7 +71,7 @@ export class DashboardComponent implements OnInit {
   }
 
   sortFunc(a: any, b: any) {
-    console.log(a.cases.total - b.cases.total)
+    // console.log(a.cases.total - b.cases.total)
     return b.cases.total - a.cases.total
   }
 }

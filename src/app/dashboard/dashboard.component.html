@@ -33,7 +33,7 @@
       </tr>
     </tbody>
   </table>
-  <div class="row" style="margin-top:30px;">
+  <div class="row sticky-header" style="margin-top:30px;">
     <div class="col-md">
       <h4 class="all-label-desktop">All over the world</h4>
     </div>
@@ -82,6 +82,7 @@
 
 <!-- mobile view -->
 <div class="container mobile-responsive">
+
   <h3>
     <br> COVID-19 Coronavirus Statistics
 
@@ -89,6 +90,7 @@
   <div class="col-xs-12 col-md-12 text-center padd0" *ngIf="loaderShowingAllIndia">
     <div class="loader"></div>
   </div>
+
   <div class="card" *ngFor="let covid of covidNumb">
     <div class="card-body custom-card-body"><i class="fa fa-angle-down custom-icon" aria-hidden="true"
         (click)="expandClick()"></i>
@@ -111,15 +113,17 @@
 
 
 
-
+  <div class="col-xs sticky-header">
   <h4><br><br>All over the world</h4>
-  <div class="col-xs-12 col-md-12 text-center padd0" *ngIf="loaderShowingAllWorld">
-    <div class="loader"></div>
-  </div>
   <div class="form-group has-search">
-    <span class="fa fa-search form-control-feedback"></span>
-    <input type="text" class="form-control" placeholder="Search" name="search" [(ngModel)]="searchText"
-      autocomplete="off" placeholder="search country name">
+      <span class="fa fa-search form-control-feedback"></span>
+      <input type="text" class="form-control" placeholder="Search" name="search" [(ngModel)]="searchText"
+        autocomplete="off" placeholder="search country name">
+    </div>
+  </div>
+
+    <div class="col-xs-12 col-md-12 text-center padd0" *ngIf="loaderShowingAllWorld">
+    <div class="loader"></div>
   </div>
   <div class="card" *ngFor="let covid of covidNumbAll | filter:searchText let i=index">
     <div class="card-body custom-card-body"><i class="fa fa-angle-down custom-icon" aria-hidden="true"
