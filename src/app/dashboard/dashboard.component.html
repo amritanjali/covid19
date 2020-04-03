@@ -92,21 +92,22 @@
   </div>
 
   <div class="card" *ngFor="let covid of covidNumb">
-    <div class="card-body custom-card-body"><i class="fa fa-angle-down custom-icon" aria-hidden="true"
-        (click)="expandClick()"></i>
+    <div class="card-body custom-card-body">
+      <!-- <i class="fa fa-angle-down custom-icon" aria-hidden="true"
+        (click)="expandClick()"></i> -->
       <!-- <i class="fa fa-angle-down custom-icon" aria-hidden="true" (click)="collpaseClick()"></i> -->
+      <i class="fa fa-angle-down custom-icon" aria-hidden="true" [ngbPopover]="popContentIndia" popoverClass="my-custom-class" placement="left"></i>
       <h5 class="card-title">{{covid.country}}</h5>
-      <div class="custom-text" *ngIf="expandDiv">
-        <p class="card-text text-default">confirmed:{{covid.cases.total}}</p>
-        <p class="card-text text-danger">deaths:{{covid.deaths.total}}</p>
-        <p class="card-text text-danger">new:{{covid.cases.new}}</p>
-        <p class="card-text text-success">recover:{{covid.cases.recovered}}</p>
-        <p class="card-text">last update:{{covid.time| date:'dd-MM-yyyy hh:mm:ss a':'+0530'}}</p>
+      <div class="custom-text">
+        <p class="card-text text-default">confirmed: {{covid.cases.total}}</p>
+        <p class="card-text text-danger">deaths: {{covid.deaths.total}}</p>
+        <ng-template #popContentIndia>
+        <p class="card-text text-danger popupText">new: {{covid.cases.new}}</p>
+        <p class="card-text text-success popupText">recover: {{covid.cases.recovered}}</p>
+        <p class="card-text popupText">last update: {{covid.time| date:'dd-MM-yyyy hh:mm:ss a':'+0530'}}</p>
+        </ng-template>
       </div>
-      <div class="custom-text" *ngIf="defaultInfo">
-        <p class="card-text text-warning">confirmed:{{covid.cases.total}}</p>
-        <p class="card-text text-danger">deaths:{{covid.deaths.total}}</p>
-      </div>
+  
 
     </div>
   </div>
@@ -126,22 +127,29 @@
     <div class="loader"></div>
   </div>
   <div class="card" *ngFor="let covid of covidNumbAll | filter:searchText let i=index">
-    <div class="card-body custom-card-body"><i class="fa fa-angle-down custom-icon" aria-hidden="true"
-        (click)="expandClick1(covid)"></i>
-      <!-- <i class="fa fa-angle-down custom-icon" aria-hidden="true" (click)="collpaseClick()"></i> -->
+    <div class="card-body custom-card-body"><i class="fa fa-angle-down custom-icon" aria-hidden="true" [ngbPopover]="popContent" popoverClass="my-custom-class" placement="left"></i>
+        <!-- <button type="button" class="btn btn-outline-secondary mr-2" placement="bottom"
+        ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on top">
+  Popover on top
+</button> -->
       <h5 class="card-title">{{covid.country}}</h5>
-      <div class="custom-text" *ngIf="expandDiv1">
+      <div class="custom-text" >
+        <p class="card-text text-default">confirmed: {{covid.cases.total}}</p>
+        <p class="card-text text-danger">deaths: {{covid.deaths.total}}</p>
+        <ng-template #popContent>
+       
+        <p class="card-text text-danger popupText">new: {{covid.cases.new}}</p>
+        <p class="card-text text-success popupText">recover: {{covid.cases.recovered}}</p>
+        <p class="card-text popupText">last update: {{covid.time| date:'dd-MM-yyyy hh:mm:ss a':'+0530'}}</p>
+      
+    </ng-template>
+      <!-- <div class="custom-text" *ngIf="defaultInfo1">
         <p class="card-text text-default">confirmed:{{covid.cases.total}}</p>
         <p class="card-text text-danger">deaths:{{covid.deaths.total}}</p>
-        <p class="card-text text-danger">new:{{covid.cases.new}}</p>
-        <p class="card-text text-success">recover:{{covid.cases.recovered}}</p>
-        <p class="card-text">last update:{{covid.time| date:'dd-MM-yyyy hh:mm:ss a':'+0530'}}</p>
-      </div>
-      <div class="custom-text" *ngIf="defaultInfo1">
-        <p class="card-text text-default">confirmed:{{covid.cases.total}}</p>
-        <p class="card-text text-danger">deaths:{{covid.deaths.total}}</p>
-      </div>
+      </div> -->
 
     </div>
   </div>
 </div>
+
+

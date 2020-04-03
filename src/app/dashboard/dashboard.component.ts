@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   public covidNumbAll: any;
   public expandDiv = false;
   public defaultInfo = true;
-  public expandDiv1 = false;
+  public expandDiv1: boolean ;
   public defaultInfo1 = true;
   public selected: any = "";
   public searchText;
@@ -62,11 +62,11 @@ export class DashboardComponent implements OnInit {
   // collpaseClick(){
 
   // }
-  expandClick1(co: any) {
-    //  this.selected = co.country;
-    this.expandDiv1 = !this.expandDiv1
-    this.defaultInfo1 = !this.defaultInfo1;
-    // console.log(this.selected )
+  expandClick1(co, index, t) {
+ 
+    this.expandDiv1 = t
+    console.log(this.expandDiv1)
+ 
 
   }
 

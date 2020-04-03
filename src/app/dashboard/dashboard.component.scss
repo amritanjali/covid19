@@ -12,14 +12,18 @@
 }
 
 .custom-text>p {
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 0px;
 }
 
 .custom-card-body {
   padding: 10px
 }
-
+.popupText{
+    font-size: 20px;
+    margin-bottom: 2px;
+    width: 200px;
+}
 .padd0 {
   padding: 0px;
 }
@@ -59,7 +63,7 @@
 
 .card-title {
   margin-bottom: 5px;
-}
+  font-size:20px;}
 
 .has-search .form-control {
   padding-left: 2.375rem;
@@ -108,6 +112,8 @@ h4 {
     z-index: 9999;
     padding-bottom: 10px;
 }
+
+
 @media (max-width: 500px) {
   .time-disable-mobile {
     display: none;
