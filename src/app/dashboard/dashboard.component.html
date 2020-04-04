@@ -64,9 +64,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let covid of covidNumbAll | filter:searchText  let i=index">
+      <tr *ngFor="let covid of covidNumbAll | filter:searchText  let i=index" class={{covid.country}}>
 
-        <td>{{covid.country}}</td>
+        <td >{{covid.country}}</td>
         <td>{{covid.cases.total}}</td>
         <td>{{covid.cases.new}}</td>
         <td [ngClass]='{"table-danger":covid.deaths.total>0,"bg-danger":covid.deaths.total>100 }'>{{covid.deaths.total}}
@@ -127,7 +127,7 @@
     <div class="loader"></div>
   </div>
   <div class="card" *ngFor="let covid of covidNumbAll | filter:searchText let i=index">
-    <div class="card-body custom-card-body"><i class="fa fa-angle-down custom-icon" aria-hidden="true" [ngbPopover]="popContent" popoverClass="my-custom-class" placement="left"></i>
+    <div class="card-body custom-card-body" id={{covid.country}}><i class="fa fa-angle-down custom-icon" aria-hidden="true" [ngbPopover]="popContent" popoverClass="my-custom-class" placement="left"></i>
         <!-- <button type="button" class="btn btn-outline-secondary mr-2" placement="bottom"
         ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on top">
   Popover on top

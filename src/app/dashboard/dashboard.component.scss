@@ -69,7 +69,12 @@
   padding-left: 2.375rem;
   border-radius: 30px;
 }
-
+.All{
+    display: none
+}
+#All{
+    display: none
+}
 .has-search .form-control-feedback {
   position: absolute;
   z-index: 2;
